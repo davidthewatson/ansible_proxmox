@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+  - name: Create new container with minimal options
+    community.general.proxmox:
+      vmid: 102
+      node: pve 
+      api_user: root@pam
+      api_password: {ROOT_PASSWORD}
+      api_host: {PVE_HOST}
+      password: 123456
+      hostname: example.org
+      ostemplate: 'local:vztmpl/alpine-3.15-default_20211202_amd64.tar.xz'
+      storage: local-lvm
